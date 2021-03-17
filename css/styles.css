@@ -1,0 +1,19 @@
+.img-sm {
+    border-radius: 100%;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 1em;
+}
+
+.img-display {
+    width:100%;
+    height:225px;
+}
+
+.btn-bottom {
+    vertical-align: bottom;
+}
+
+.chinese {
+    display: none;
+}
