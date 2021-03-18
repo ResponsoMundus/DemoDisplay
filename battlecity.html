@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.0-alpha2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Stash Of ResponsoMundus</title>
+    <title>Multi-player BattleCity</title>
 </head>
 <body>
     <header>
@@ -26,8 +26,46 @@
         </div>
     </header>
 
-    <div class="py-5 text-center bg-light">
-        PlaceHolder
+    <div class="py-5 m-0 bg-light">
+        <div class="container">
+            <h1 class="py-5 text-center english">Multi-player BattleCity</h1>
+            <h1 class="py-5 text-center chinese">坦克大战多人版</h1>
+            <image class="img-intext mx-auto d-block" src="images/battlecity/BattleCity-Original.jpg"></image>
+            <p class="py-3 px-5 english">
+                Have you ever played with the classic tank battle game, BattleCity? If so you will find this simple game very familiar. 
+                This is a game I made with two of my friends as a coursework project when I was still studying for my Master's degree back in university. 
+                The goal of the coursework is to implemented concurrency as practice. But my team and I decided to take this further into making a multiplayer 
+                game from scratch for fun and challenge.
+            </p>
+            <image class="img-intext mx-auto d-block" src="images/battlecity/BattleCity-1.png"></image>
+            <p class="py-3 px-5 english">
+                So, after several weeks of work, the game is ready. We developed a server which can maintain multiple games of up to 5 players simultaneously 
+                along with a client which is capable of communicating with server and renderring gameplay graphics in real time.
+            </p>
+            <image class="img-intext mx-auto d-block" src="images/battlecity/BattleCity-2.png"></image>
+            <p class="py-3 px-5 english">
+                On the server side, when a player connects it starts a simple process of a handshake and, after that, it will either start a new game or find 
+                the newest on-going game for the player to join. 
+                We made the server to update the maps it maintains and send those information back to the players at the rate of one tick per second. 
+                So, when a client sends an input to server, it will cache the input and wait until the next tick to update the change. 
+                If a winner emerges in a game, the server will send the client an end message and kills the game process to save resources for on-going games.
+            </p>
+            <p class="py-3 px-5 english">
+                For the client, it listens to keyboard inputs of the player and send player actions in pre-determined code to server. It supports inputs from 
+                arrow keys for movement and left shift key for fire. After receiving a message from server, it will either rerender the graphics according to 
+                the latest map information or prompt a message informing the players of their tank's demise or which player is the winner.
+            </p>
+            <image class="img-intext mx-auto d-block" src="images/battlecity/BattleCity-Poster.png"></image>
+            <p class="py-3 px-5 english">
+                We also made a poster for the project to be better demonstrated. You may find it <a href="pdf/BattleCityPoster.pdf">here</a>.
+            </p>
+            <p class="py-3 px-5 english">
+                If you are looking to get your hands on our little game, you may find it <a href="https://github.com/XieJunran/COP5615">here</a>.
+            </p>
+            <p class="py-3 px-5 english">
+                <a href="index.html">Back to Stash</a>
+            </p>
+        </div>
     </div>
 
     <footer class="text-muted text-center py-5">
