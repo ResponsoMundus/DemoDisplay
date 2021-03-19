@@ -25,3 +25,12 @@ h1, h2, h3, h4, h5, p {
 .chinese {
     display: none;
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+#carousel-movement {
+    text-align: center;
+}
