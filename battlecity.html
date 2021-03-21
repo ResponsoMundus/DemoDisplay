@@ -29,7 +29,7 @@
     <div class="py-5 m-0 bg-light">
         <div class="container">
             <h1 class="py-5 text-center english">Multi-player BattleCity</h1>
-            <h1 class="py-5 text-center chinese">坦克大战多人版</h1>
+            <h1 class="py-5 text-center chinese">多人坦克大战</h1>
             <image class="img-intext mx-auto d-block" src="images/BattleCity/BattleCity-Original.jpg"></image>
             <p class="py-3 px-5 english">
                 Have you ever played with the classic tank battle game, BattleCity? If so you will find this simple game very familiar. 
@@ -37,33 +37,59 @@
                 The goal of the coursework is to implemented concurrency as practice. But my team and I decided to take this further into making a multiplayer 
                 game from scratch for fun and challenge.
             </p>
+            <p class="py-3 px-5 chinese">
+                如果你玩过经典游戏坦克大战的话，那你应该不会对这个这个简单的小游戏感到陌生。多人坦克大战是我还在佛罗里达大学攻读硕士学位时，与两个同学一起作为课业项目开发的小游戏。
+                这个课业项目本只要求我们完成一个体现并发的程序，而，为了挑战自我，我们小团队最终选择了以坦克大战的多人版为目标从零开始开发服务器与客户端。
+            </p>
             <image class="img-intext mx-auto d-block" src="images/BattleCity/BattleCity-1.png"></image>
             <p class="py-3 px-5 english">
                 So, after several weeks of work, the game is ready. We developed a server which can maintain multiple games of up to 5 players simultaneously 
                 along with a client which is capable of communicating with server and renderring gameplay graphics in real time.
             </p>
+            <p class="py-3 px-5 chinese">
+                经过了几周的努力，游戏终于成型了。我们为之开发了一个多线程服务器来支持多个最高五位玩家的游戏房间同时进行。同时，也开发了一个可以与服务器建立链接并实时渲染游戏画面的客户端。
+            </p>
             <image class="img-intext mx-auto d-block" src="images/BattleCity/BattleCity-2.png"></image>
             <p class="py-3 px-5 english">
                 On the server side, when a player connects it starts a simple process of a handshake and, after that, it will either start a new game or find 
                 the newest on-going game for the player to join. 
-                We made the server to update the maps it maintains and send those information back to the players at the rate of one tick per second. 
                 So, when a client sends an input to server, it will cache the input and wait until the next tick to update the change. 
                 If a winner emerges in a game, the server will send the client an end message and kills the game process to save resources for on-going games.
+                After some tests, we made the server to update the maps it maintains and send those information back to the players at the rate of one tick per second. 
+            </p>
+            <p class="py-3 px-5 chinese">
+                当一名玩家通过客户端与服务器建立链接时，服务器与客户端会进行一次简单的握手，然后服务器会根据当前情况，选择为这位玩家新建一个游戏房间或者直接让这位玩家加入一个现存的游戏房间之中。
+                客户端向服务器发送的信息会被服务器缓存在并在下一帧更新。
+                在一场游戏的胜利者产生后，服务器会向当前房间内所有的客户端发送游戏结束的信息，并结束当前游戏房间的进程回收资源。
+                在经过测试后，我们将服务器更新并向客户端广播地图信息的一次周期，锁定为一秒一帧。
             </p>
             <p class="py-3 px-5 english">
                 For the client, it listens to keyboard inputs of the player and send player actions in pre-determined code to server. It supports inputs from 
                 arrow keys for movement and left shift key for fire. After receiving a message from server, it will either rerender the graphics according to 
                 the latest map information or prompt a message informing the players of their tank's demise or which player is the winner.
             </p>
+            <p class="py-3 px-5 english">
+                再来谈谈客户端。客户端会将玩家的输入，即方向箭头键为移动以及左Shift键为开火，转化为预定的玩家活动码并将之发送至服务器。在客户端收到服务器发来的地图信息后，客户端会
+                根据信息的本身判断是应该继续渲染新的游戏画面还是弹窗提示玩家死亡或者胜利者的信息。
+            </p>
             <image class="img-intext mx-auto d-block" src="images/BattleCity/BattleCity-Poster.png"></image>
             <p class="py-3 px-5 english">
                 We also made a poster for the project to be better demonstrated. You may find it <a href="pdf/BattleCityPoster.pdf">here</a>.
             </p>
+            <p class="py-3 px-5 chinese">
+                为了更好地展示项目的信息，我们团队还为此制作了一份海报。请点击<a href="pdf/BattleCityPoster.pdf">这里</a>获得。
+            </p>
             <p class="py-3 px-5 english">
                 If you are looking to get your hands on our little game, you may find it <a href="https://github.com/XieJunran/COP5615">here</a>.
             </p>
+            <p class="py-3 px-5 chinese">
+                如果你想尝试这个小游戏或者获取其源代码，请点击<a href="https://github.com/XieJunran/COP5615">这里</a>。
+            </p>
             <p class="py-3 px-5 english">
                 <a href="index.html">Back to Stash</a>
+            </p>
+            <p class="py-3 px-5 chinese">
+                <a href="index.html?lang=zh">回到储藏室</a>
             </p>
         </div>
     </div>
@@ -76,9 +102,9 @@
             </p>
             <br>
             <p class="mb-0 english">Contact: jyluo37@gmail.com or gamesluook_hi@126.com</p>
-            <p class="mb-1 english">Designed and built based on album example provided by Bootstrap team on <a href="getbootstrap.com">getbootstrap.com</a></p>
+            <p class="mb-1 english">Designed and built based on examples provided by Bootstrap team on <a href="getbootstrap.com">getbootstrap.com</a></p>
             <p class="mb-0 chinese">联系信息: jyluo37@gmail.com or gamesluook_hi@126.com</p>
-            <p class="mb-1 chinese">本页面参考自Bootstrap团队在<a href="getbootstrap.com">getbootstrap.com</a>上的相册样例项目</p>
+            <p class="mb-1 chinese">本页面参考自Bootstrap团队在<a href="getbootstrap.com">getbootstrap.com</a>上的样例项目</p>
         </div>
     </footer>
 
