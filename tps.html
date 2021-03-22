@@ -90,14 +90,14 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <p class="py-3 px-5 chinese">
+            <p class="py-3 px-5 english">
                 After basic animations done, I decided to also make a cover system so the game can be more like mainstream TPS games, such as Division 2. And, this system turned 
                 out to be harder than I thought. The tutorial I was following used root-motion aniamtions while I was using in-place animations and it was hard to adjust those 
                 in-place animations to act like root-motion animations. 
                 <br>
                 PS: The only regret here is that I did not implemented cover for side arms because I do not have cover animations for side arms.
             </p>
-            <p class="py-3 px-5 english">
+            <p class="py-3 px-5 chinese">
                 在解决了基本的运动动画后，我想到了全境封锁中的掩体系统，便想尝试一下，看看自己是否能够实现一个类似的功能。事实证明，掩体系统比我想象的要难些。而且我所参考的教程中，作者使用的是根运动（root-motion）
                 动画，而我用的则是原地(in-place)动画，这使得我必须单独运算这些动作所带来的的位移并应用于角色身上。最终效果如下。
                 <br>
@@ -115,7 +115,7 @@
                 in Unreal Engine 4. AI characters will stay standing at their spawn points and will only move towards player and enter combat when player appears in their lines of sight. Also, they will 
                 check the players last seen location if the player gets out of sight and disarm themself when the player is nowhere to be found.
             </p>
-            <p class="py-3 px-5 english">
+            <p class="py-3 px-5 chinese">
                 在完成了这一切后，我通过之前建立的角色基础类建立了新的AI角色类，并开始为之开发AI行为。毕竟一个射击游戏还是需要有东西可以射击的。由于这是我第一次学习如何使用虚幻4中的AIController
                 以及行为树，我的目标是完成一套简单而基础的AI逻辑。简单来说，AI角色会在原地站岗，直到它在视线内发现了玩家角色，然后它掏出武器会朝着玩家移动并攻击。如果玩家成功逃离了AI角色的追杀，AI
                 角色会移动至玩家最后出现的位置以搜寻玩家。最终，如果即便如此它也没有再次发现玩家角色，它便会收起武器，继续原地站岗。
@@ -137,12 +137,16 @@
             </p>
             <p class="py-3 px-5 english">
                 <span class="px-5">More AI behaviors, for example, checking dead bodies, patroling based on spawn point and a better player detection mechanics.</span>
+                <br>
                 <span class="px-5">Better animations based on root-motion animations.</span>
+                <br>
                 <span class="px-5">More complex player inventory system with the functions of picking up new weapons and other items.</span>
             </p>
             <p class="py-3 px-5 chinese">
                 <span class="px-5">添加更多的AI行为，例如检查死亡友军的尸体、基于出生点的巡逻行为以及更好地玩家发现机制。</span>
+                <br>
                 <span class="px-5">重做运动动画系统，改用基于根运动的动画。</span>
+                <br>
                 <span class="px-5">实现一个相对复杂一些的玩家物品栏系统，并添加拾取物品的功能。</span>
             </p>
 
