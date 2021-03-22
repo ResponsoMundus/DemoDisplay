@@ -37,11 +37,20 @@
                 tutorials from different content creators on Youtube. After going through most of them, I believed that it was time for me to build my own TPS Prototype with  
                 Unreal Engine 4.
             </p>
+            <p class="py-3 px-5 chinese">
+                几周前，我与一位朋友趁着打折，在UConnect购买了汤姆克兰西的全境封锁2。在完成了主线剧情后，一个想法油然而生————我是否可以使用虚幻4引擎开发一个简单的第三人称射击游戏？抱着这样的
+                想法，我在Google上查到了数个来自不同创作者的教程。在简单地浏览后，我认为是时候开始开发一个自己的第三人称射击游戏原型了。
+            </p>
             <p class="py-3 px-5 english">
                 So the first goal I set was to implement basic 8-way movement systems for player character in different different modes, for example unarmed and holding a rifle. 
                 To do this, I created my own BlendSpace with animations form kubold's animsets and created an Animation Blueprint which updates character animation according to 
                 character movement information, such as speed and direction, it captured. And to get a more responsive character control, I also implemented turn in place animations.
                 So here is the outcome.
+            </p>
+            <p class="py-3 px-5 chinese">
+                根据数个教程中的流程，我决定从角色的运动入手，并最终通过动画蓝图与基于现存动画的自定义BlendSpace实现了角色在不同状态下的八方向移动系统。动画蓝图会在每一帧自动获取其绑定角色的运动状态信息，
+                如速度、方向、状态等，并通过这些信息决定应该播放什么样的角色动画，而Blendspace则大大简化了角色运动中运动速度和方向变化所带来的动画切换。同时，为了使角色更逼真，我还实现了角色原地转身等动画
+                实现，所以玩家角色不会在镜头转动中平移式转身，而是会在镜头水平旋转到45°后播放一个角色转身的动画。以下便是我的成果。
             </p>
             <div id="carousel-movement" class="carousel slide" data-bs-ride="false">
                 <div class="carousel-inner">
@@ -49,21 +58,25 @@
                         <img class="testimonial-image" src="images/TPS/TPS-Movement-1.gif">
                         <br>
                         <p class="english">Unarmed Movement</p>
+                        <p class="chinese">无武器运动</p>
                     </div>
                     <div class="carousel-item">
                         <img class="testimonial-image" src="images/TPS/TPS-Movement-2.gif">
                         <br>
                         <p class="english">Rifle Movement</p>
+                        <p class="chinese">步枪运动</p>
                     </div>
                     <div class="carousel-item">
                         <img class="testimonial-image" src="images/TPS/TPS-Movement-3.gif">
                         <br>
                         <p class="english">Pistol Movement</p>
+                        <p class="chinese">手枪运动</p>
                     </div>
                     <div class="carousel-item">
                         <img class="testimonial-image" src="images/TPS/TPS-TurnInPlace.gif">
                         <br>
                         <p class="english">Turn In Place</p>
+                        <p class="chinese">原地转身</p>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carousel-movement"
@@ -77,31 +90,95 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <p class="py-3 px-5 english">
+            <p class="py-3 px-5 chinese">
                 After basic animations done, I decided to also make a cover system so the game can be more like mainstream TPS games, such as Division 2. And, this system turned 
-                out to be harder than I thought. The tutorials I was following used root-motion aniamtions while I was using in-place animations and it was hard to adjust those 
-                in-place animations to act like root-motion animations. Though I did not implemented cover for side arms because I do not have cover animations for side arms, I am 
-                just glad that I made it.
+                out to be harder than I thought. The tutorial I was following used root-motion aniamtions while I was using in-place animations and it was hard to adjust those 
+                in-place animations to act like root-motion animations. 
+                <br>
+                PS: The only regret here is that I did not implemented cover for side arms because I do not have cover animations for side arms.
+            </p>
+            <p class="py-3 px-5 english">
+                在解决了基本的运动动画后，我想到了全境封锁中的掩体系统，便想尝试一下，看看自己是否能够实现一个类似的功能。事实证明，掩体系统比我想象的要难些。而且我所参考的教程中，作者使用的是根运动（root-motion）
+                动画，而我用的则是原地(in-place)动画，这使得我必须单独运算这些动作所带来的的位移并应用于角色身上。最终效果如下。
+                <br>
+                PS：这里最大的遗憾是没有手枪的掩体内动画，故而我没能实现角色使用手枪时的掩体系统。
             </p>
             <image class="mx-auto d-block" src="images/TPS/TPS-Cover.gif"></image>
             <p class="py-3 px-5 english">
                 As you can see in the gif for cover system, I also implemented an UI that appears when player hit right mouse button to zoom in for better aims.
             </p>
+            <p class="py-3 px-5 chinese">
+                正如gif中所示，我还未玩家角色实现了一个简单的瞄准UI来显示玩家的武器和生命值信息以及瞄准时的镜头缩进动画。
+            </p>
             <p class="py-3 px-5 english">
-                With all those done, I started working on AIs. After all, every TPS game has enemies to shoot at. And this is the first time I built AI with AIController and BehaviorTree 
-                in Unreal Engine 4. Though the AI I implemented does not possess complicated logics, I am happy with how they behave at the moment.
+                With all those done, I started working on AIs. After all, every TPS game has enemies to shoot at. And this is the first time I built AI behaviors with AIController and BehaviorTree 
+                in Unreal Engine 4. AI characters will stay standing at their spawn points and will only move towards player and enter combat when player appears in their lines of sight. Also, they will 
+                check the players last seen location if the player gets out of sight and disarm themself when the player is nowhere to be found.
+            </p>
+            <p class="py-3 px-5 english">
+                在完成了这一切后，我通过之前建立的角色基础类建立了新的AI角色类，并开始为之开发AI行为。毕竟一个射击游戏还是需要有东西可以射击的。由于这是我第一次学习如何使用虚幻4中的AIController
+                以及行为树，我的目标是完成一套简单而基础的AI逻辑。简单来说，AI角色会在原地站岗，直到它在视线内发现了玩家角色，然后它掏出武器会朝着玩家移动并攻击。如果玩家成功逃离了AI角色的追杀，AI
+                角色会移动至玩家最后出现的位置以搜寻玩家。最终，如果即便如此它也没有再次发现玩家角色，它便会收起武器，继续原地站岗。
             </p>
             <image class="img-intext mx-auto d-block" src="images/TPS/TPS-AI-1.png"></image>
             <p class="py-3 px-5 text-center english">Behavior Tree</p>
+            <p class="py-3 px-5 text-center chinese">行为树</p>
             <image class="img-intext mx-auto d-block" src="images/TPS/TPS-AI-2.gif"></image>
             <p class="py-3 px-5 text-center english">AI Behavior</p>
+            <p class="py-3 px-5 text-center chinese">AI行为</p>
             <p class="py-3 px-5 english">
-                As my first fucntional TPS prototype game made in 2 weeks, I am quite pleased with it. And I do have several aspects that I want to improve. First, 
-                I used in-place animations which had its limitations, and I want to renovate the animation system with root-motion animations for a better experience. And next, 
-                I want to learn more about Behavior Trees and made AI smarter. Also, I would love to implement more movement functions such as jump, vault, and crouch.
+                As my first fucntional TPS prototype game made in 2 weeks, I am quite pleased with it. But during my course of making this small project, I learnt more about animations 
+                and AI behaviors in Unreal Engine 4. So, I do have a plan to make some improvement for some existing feature of this small project and add some more features. Here is a 
+                to-do list. 
+            </p>
+            <p class="py-3 px-5 chinese">
+                作为一个耗时两周的项目，我对结果还算比较满意。同时，在完成这个项目的过程中，我学到了一些关于根运动动画与AI行为的一些新知识。所以，我为这个项目制定了一个改进计划，来改进现有机制并添加一些新的特性。
+                以下是我的初步计划。
             </p>
             <p class="py-3 px-5 english">
+                <span class="px-5">More AI behaviors, for example, checking dead bodies, patroling based on spawn point and a better player detection mechanics.</span>
+                <span class="px-5">Better animations based on root-motion animations.</span>
+                <span class="px-5">More complex player inventory system with the functions of picking up new weapons and other items.</span>
+            </p>
+            <p class="py-3 px-5 chinese">
+                <span class="px-5">添加更多的AI行为，例如检查死亡友军的尸体、基于出生点的巡逻行为以及更好地玩家发现机制。</span>
+                <span class="px-5">重做运动动画系统，改用基于根运动的动画。</span>
+                <span class="px-5">实现一个相对复杂一些的玩家物品栏系统，并添加拾取物品的功能。</span>
+            </p>
+
+            <p class="py-3 px-5 english">
                 In this proejct, I used assets from following sources apart from contents provided by Unreal Engine 4.
+                <br>
+                <span class="px-5">
+                    <a href="https://unrealengine.com/marketplace/en-US/product/fps-weapon-bundle">FPS Weapon Bundle</a> by Deadghost Interactive form UE Marketplace
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.unrealengine.com/marketplace/en-US/product/movement-animset-pro">Movement Animset Pro</a> by Kubold form UE Marketplace
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.unrealengine.com/marketplace/en-US/product/rifle-animset-pro">Rifle Animset Pro</a> by Kubold form UE Marketplace
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.unrealengine.com/marketplace/en-US/product/pistol-animset-pro">Pistol Animset Pro</a> by Kubold form UE Marketplace
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.unrealengine.com/marketplace/en-US/product/cover-animset-pro">Cover Animset Pro</a> by Kubold form UE Marketplace
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.unrealengine.com/marketplace/en-US/product/stylized-shooting-vfx-niagara-muzzle-bullet-trail-impact">Stylized Shooting VFX Niagara</a> by Anil Koylu form UE Marketplace
+                </span>
+                <br>
+                <span class="px-5">
+                    Weapon Sounds from <a href="https://www.fesliyanstudios.com/">www.fesliyanstudios.com</a>
+                </span>
+            </p>
+            <p class="py-3 px-5 chinese">
+                在这个项目中，我使用了以下资源。
                 <br>
                 <span class="px-5">
                     <a href="https://unrealengine.com/marketplace/en-US/product/fps-weapon-bundle">FPS Weapon Bundle</a> by Deadghost Interactive form UE Marketplace
@@ -154,6 +231,29 @@
                     <a href="https://www.youtube.com/watch?v=yj2DcD5xdto&list=PLDzIXE02_huLReMzS7LvsW-Ky5OhJaZDw">Combat Mode System by Blueprint Games on Youtbe</a>
                 </span>
             </p>
+            <p class="py-3 px-5 chinese">
+                以下是我的参考资料。
+                <br>
+                <span class="px-5">
+                    <a href="https://www.udemy.com/course/unrealcourse/">Unreal Engine C++ Developer: Learn C++ and Make Video Games</a>
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.youtube.com/watch?v=blFe97UT0VQ&list=PLw-Av44T7VQXIbiAhPEIKMlpv4Rvqoom9">Unreal Engine Professional Series by Mark Luttrell on Youtube</a>
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.youtube.com/watch?v=7YlvOEIzIBk&list=PLNTm9yU0zou4HL7SAyIQoCqJRJ5QeQAl8">Unreal Third Person Shooter Series by CodeLikeMe on Youtube</a>
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.youtube.com/watch?v=70-s-wAsUjU&list=PLM6ZWbxOgIqtykvugUYl28VU6uAvi0X-9">🎮 Unreal Engine TPS Zombie Game by SG Unreal Creation on Youtube</a>
+                </span>
+                <br>
+                <span class="px-5">
+                    <a href="https://www.youtube.com/watch?v=yj2DcD5xdto&list=PLDzIXE02_huLReMzS7LvsW-Ky5OhJaZDw">Combat Mode System by Blueprint Games on Youtbe</a>
+                </span>
+            </p>
             <p class="py-3 px-5 english">
                 If you are looking to get your hands on this game, you may find it at links listed below. (Because I used paid assets, such as animations and custom visual effects, I cannot provide full project files)
                 <br>
@@ -161,6 +261,16 @@
                     Build: 
                     <a href="https://mega.nz/file/vPhwFSTQ#rprBwF8e0wCzO7Udg1Q4eJktTl1PSBmObbk98fJD8wI">Mega Cloud</a> 
                     <a href="https://pan.baidu.com/s/13tEPO6jlGNAuwEBgl5StQg">Baidu Cloud</a>(Access Code: RSMD)
+                </span>
+                <br>
+            </p>
+            <p class="py-3 px-5 chinese">
+                最后，是这个小游戏的下载地址。（由于项目中采用了些许付费素材，故不公布项目文件）
+                <br>
+                <span class="px-5">
+                    Build: 
+                    <a href="https://mega.nz/file/vPhwFSTQ#rprBwF8e0wCzO7Udg1Q4eJktTl1PSBmObbk98fJD8wI">Mega Cloud</a> 
+                    <a href="https://pan.baidu.com/s/13tEPO6jlGNAuwEBgl5StQg">百度盘</a>(提取码: RSMD)
                 </span>
                 <br>
             </p>
