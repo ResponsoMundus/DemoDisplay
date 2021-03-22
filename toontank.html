@@ -36,16 +36,17 @@
                 turrets to secure the area.
             </p>
             <p class="py-3 px-5 chinese">
-                Toon Tanks is the second project I developed with Unreal Engine 4 and C++. Player controls a cartoon-style tank and has the goal to destroy every enemy 
-                turrets to secure the area.
                 卡通坦克大战是我基于虚幻4引擎与C++开发的第二个项目。类似于之前的基于Java开发的多人版坦克大战，玩家在游戏中操控坦克，去摧毁敌人，但这是一个单机游戏，而敌人则换为了自律炮塔。
             </p>
             <p class="py-3 px-5 english">
                 In this project, player controls the tank movement with classic WASD keyboard inputs and the turret of the tank is controlled by player cursor location.
                 And hostile turrets are controlled by built-in AI of each turret so that they will detect the player and fire at the player's tank when they are in range.
+                I implemented rounds fired by both player tanks and enemy turents with an Actor class with a Projectile Movement Component to simulate its movement and a 
+                Sphere Collision as hitbox.
             </p>
             <p class="py-3 px-5 chinese">
-                在这个小项目中，玩家通过WASD来操作坦克的移动并通过鼠标来控制坦克炮塔。而由AI操作的敌对自律炮塔会自动监测射程内的玩家，并锁定射击。
+                在这个小项目中，玩家通过WASD来操作坦克的移动并通过鼠标来控制坦克炮塔。而由AI操作的敌对自律炮塔会自动监测射程内的玩家，并锁定射击。游戏中的炮弹则是通过继承Actor类并添加了
+                抛射物运动组件（Projectile Movement Component）来模拟抛射物运动以及一个球体碰撞组件（Sphere Collision）以探测击中的物体。
             </p>
             <image class="img-intext mx-auto d-block" src="images/ToonTank/ToonTank-2.gif"></image>
             <p class="py-3 px-5 english">
