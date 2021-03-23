@@ -93,13 +93,15 @@
             <p class="py-3 px-5 english">
                 After basic animations done, I decided to also make a cover system so the game can be more like mainstream TPS games, such as Division 2. And, this system turned 
                 out to be harder than I thought. The tutorial I was following used root-motion aniamtions while I was using in-place animations and it was hard to adjust those 
-                in-place animations to act like root-motion animations. 
+                in-place animations to act like root-motion animations. The basic idea of this system is to get the normal and location of possible covers by using Sphere Trace and 
+                play the corresponding animations when player enters cover mode.
                 <br>
                 PS: The only regret here is that I did not implemented cover for side arms because I do not have cover animations for side arms.
             </p>
             <p class="py-3 px-5 chinese">
                 在解决了基本的运动动画后，我想到了全境封锁中的掩体系统，便想尝试一下，看看自己是否能够实现一个类似的功能。事实证明，掩体系统比我想象的要难些。而且我所参考的教程中，作者使用的是根运动（root-motion）
-                动画，而我用的则是原地(in-place)动画，这使得我必须单独运算这些动作所带来的的位移并应用于角色身上。最终效果如下。
+                动画，而我用的则是原地(in-place)动画，这使得我必须单独运算这些动作所带来的的位移并应用于角色身上。掩体系统的而基本原理是使用球体追踪（Sphere Trace）获取掩体的位置与法向量，并在玩家激活掩体状态后，
+                播放相应的动画。最终效果如下。
                 <br>
                 PS：这里最大的遗憾是没有手枪的掩体内动画，故而我没能实现角色使用手枪时的掩体系统。
             </p>
